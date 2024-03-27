@@ -12,6 +12,9 @@
 
 
 
+
+
+
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 class ResistorConversionPage extends StatefulWidget {
   @override
@@ -359,74 +362,4 @@ class ResistorBand extends StatelessWidget {
     );
   }
 }
-
-class _SMDResistorConversionPageState extends State<SMDResistorConversionPage> {
-  String markingCode = '';
-  String resistorValue = '';
-
-  void calculateResistorValue(String code) {
-
-    if (code.length == 3) {
-
-      String firstTwoDigits = code.substring(0, 2);
-
-      setState(() {
-        resistorValue = '$firstTwoDigits ohm';
-      });
-    } else {
-      
-      setState(() {
-        resistorValue = 'Invalid input. Please enter a 3-digit code.';
-      });
-    }
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text('SMD Resistor Conversion'),
-      ),
-      body: Padding(
-        padding: EdgeInsets.all(20.0),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: <Widget>[
-            Text(
-              'Insert the marking code of the SMD resistor (3 digits):',
-              style: TextStyle(fontSize: 18.0),
-            ),
-            TextField(
-              onChanged: (value) {
-                markingCode = value;
-              },
-              decoration: InputDecoration(
-                labelText: 'Marking Code',
-                border: OutlineInputBorder(),
-              ),
-            ),
-            SizedBox(height: 20),
-            ElevatedButton(
-              onPressed: () {
-                calculateResistorValue(markingCode);
-              },
-              child: Text('Calculate'),
-            ),
-            SizedBox(height: 20),
-            Text(
-              'The resistor value can be:',
-              style: TextStyle(fontSize: 18.0),
-            ),
-            SizedBox(height: 10),
-            Text(
-              resistorValue,
-              style: TextStyle(fontSize: 16.0),
-            ),
-          ],
-        ),
-      ),
-    );
-  }
-}
-
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
