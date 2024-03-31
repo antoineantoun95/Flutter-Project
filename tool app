@@ -1,20 +1,206 @@
+import 'package:flutter/material.dart';
+
+void main() {
+  runApp(UnitConversionApp());
+}
+
+class UnitConversionApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      title: 'Unit Conversion',
+      theme: ThemeData(
+        primarySwatch: Colors.teal,
+      ),
+      home: MainScreen(),
+      routes: {
+        '/distance': (context) => DistanceConversionPage(),
+        '/weight': (context) => WeightConversionPage(),
+        '/temperature': (context) => TemperatureConversionPage(),
+        '/volume': (context) => VolumeConversionPage(),
+        '/resistor': (context) => ResistorConversionPage(),
+        '/smd_resistor': (context) => SMDResistorConversionPage(),
+
+      },
+    );
+  }
+}
+
+class SMDResistorConversionPage extends StatefulWidget {
+  @override
+  _SMDResistorConversionPageState createState() => _SMDResistorConversionPageState();
+}
 
 
+class MainScreen extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Unit Conversion'),
+      ),
+      body: Padding(
+        padding: const EdgeInsets.all(16.0),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: <Widget>[
+                Expanded(
+                  child: Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: ElevatedButton(
+                      onPressed: () {
+                        Navigator.pushNamed(context, '/distance');
+                      },
+                      style: ElevatedButton.styleFrom(
+                        padding: EdgeInsets.all(20.0),
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(10.0),
+                        ),
+                        primary: Colors.teal,
+                      ),
+                      child: Text(
+                        'Distance Conversion',
+                        textAlign: TextAlign.center,
+                        style: TextStyle(fontSize: 18.0),
+                      ),
+                    ),
+                  ),
+                ),
+                Expanded(
+                  child: Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: ElevatedButton(
+                      onPressed: () {
+                        Navigator.pushNamed(context, '/weight');
+                      },
+                      style: ElevatedButton.styleFrom(
+                        padding: EdgeInsets.all(20.0),
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(10.0),
+                        ),
+                        primary: Colors.teal,
+                      ),
+                      child: Text(
+                        'Weight Conversion',
+                        textAlign: TextAlign.center,
+                        style: TextStyle(fontSize: 18.0),
+                      ),
+                    ),
+                  ),
+                ),
+              ],
+            ),
+            SizedBox(height: 20),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: <Widget>[
+                Expanded(
+                  child: Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: ElevatedButton(
+                      onPressed: () {
+                        Navigator.pushNamed(context, '/temperature');
+                      },
+                      style: ElevatedButton.styleFrom(
+                        padding: EdgeInsets.all(20.0),
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(10.0),
+                        ),
+                        primary: Colors.teal,
+                      ),
+                      child: Text(
+                        'Temperature Conversion',
+                        textAlign: TextAlign.center,
+                        style: TextStyle(fontSize: 18.0),
+                      ),
+                    ),
+                  ),
+                ),
+                Expanded(
+                  child: Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: ElevatedButton(
+                      onPressed: () {
+                        Navigator.pushNamed(context, '/volume');
+                      },
+                      style: ElevatedButton.styleFrom(
+                        padding: EdgeInsets.all(20.0),
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(10.0),
+                        ),
+                        primary: Colors.teal,
+                      ),
+                      child: Text(
+                        'Volume Conversion',
+                        textAlign: TextAlign.center,
+                        style: TextStyle(fontSize: 18.0),
+                      ),
+                    ),
+                  ),
+                ),
+              ],
+            ),
+            // Adding the Resistor Conversion button
+            SizedBox(height: 20),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                Expanded(
+                  child: Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: ElevatedButton(
+                      onPressed: () {
+                        Navigator.pushNamed(context, '/resistor');
+                      },
+                      style: ElevatedButton.styleFrom(
+                        padding: EdgeInsets.all(20.0),
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(10.0),
+                        ),
+                        primary: Colors.teal,
+                      ),
+                      child: Text(
+                        'Resistor Conversion',
+                        textAlign: TextAlign.center,
+                        style: TextStyle(fontSize: 18.0),
+                      ),
+                    ),
+                  ),
+                ),
+                Expanded(
+                  child: Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: ElevatedButton(
+                      onPressed: () {
+                        Navigator.pushNamed(context, '/smd_resistor');
+                      },
+                      style: ElevatedButton.styleFrom(
+                        padding: EdgeInsets.all(20.0),
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(10.0),
+                        ),
+                        primary: Colors.teal,
+                      ),
+                      child: Text(
+                        'SMD Resistor Conversion',
+                        textAlign: TextAlign.center,
+                        style: TextStyle(fontSize: 18.0),
+                      ),
+                    ),
+                  ),
+                ),
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+              ],
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 class ResistorConversionPage extends StatefulWidget {
   @override
@@ -128,12 +314,12 @@ class _ResistorConversionPageState extends State<ResistorConversionPage> {
     'Gold': Colors.amber,
     'Silver': Colors.blueGrey,
   };
-
+  // Add a field for each band color that you want to display
   Color _band1Color = Colors.white;
   Color _band2Color = Colors.white;
   Color _band3Color = Colors.white;
   Color _band4Color = Colors.white;
-
+// Add a method to change the band colors
   void _changeBandColor(int band, Color color) {
     setState(() {
       switch (band) {
@@ -172,7 +358,8 @@ class _ResistorConversionPageState extends State<ResistorConversionPage> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: <Widget>[
-
+              // Add your resistor image
+              // Image.asset('images/resistor.jpg'),
               Image.asset(
                 'Images/Resistor.jpg',
                 width: 200, // set the width to the desired width in logical pixels
@@ -182,7 +369,7 @@ class _ResistorConversionPageState extends State<ResistorConversionPage> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
-
+                  // Replace these with your actual color choosing logic
                   ColorIndicator(color: _band1Color),
                   ColorIndicator(color: _band2Color),
                   ColorIndicator(color: _band3Color),
@@ -362,4 +549,413 @@ class ResistorBand extends StatelessWidget {
     );
   }
 }
+
+class _SMDResistorConversionPageState extends State<SMDResistorConversionPage> {
+  String markingCode = '';
+  String resistorValue = '';
+
+  void calculateResistorValue(String code) {
+    // Ensure that the input code is exactly 3 digits long
+    if (code.length == 3) {
+      // Extract the first two digits
+      String firstTwoDigits = code.substring(0, 2);
+      // Set the resistor value
+      setState(() {
+        resistorValue = '$firstTwoDigits ohm';
+      });
+    } else {
+      // If the input code is not 3 digits long, display an error message
+      setState(() {
+        resistorValue = 'Invalid input. Please enter a 3-digit code.';
+      });
+    }
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('SMD Resistor Conversion'),
+      ),
+      body: Padding(
+        padding: EdgeInsets.all(20.0),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: <Widget>[
+            Text(
+              'Insert the marking code of the SMD resistor (3 digits):',
+              style: TextStyle(fontSize: 18.0),
+            ),
+            TextField(
+              onChanged: (value) {
+                markingCode = value;
+              },
+              decoration: InputDecoration(
+                labelText: 'Marking Code',
+                border: OutlineInputBorder(),
+              ),
+            ),
+            SizedBox(height: 20),
+            ElevatedButton(
+              onPressed: () {
+                calculateResistorValue(markingCode);
+              },
+              child: Text('Calculate'),
+            ),
+            SizedBox(height: 20),
+            Text(
+              'The resistor value can be:',
+              style: TextStyle(fontSize: 18.0),
+            ),
+            SizedBox(height: 10),
+            Text(
+              resistorValue,
+              style: TextStyle(fontSize: 16.0),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+class DistanceConversionPage extends StatefulWidget {
+  @override
+  _DistanceConversionPageState createState() => _DistanceConversionPageState();
+}
+
+class _DistanceConversionPageState extends State<DistanceConversionPage> {
+  double _inputValue = 0.0;
+  double _outputValue = 0.0;
+  bool _isMeterToFeet = true;
+
+  void _convert() {
+    setState(() {
+      if (_isMeterToFeet) {
+        _outputValue = _inputValue * 3.28084; // 1 meter = 3.28084 feet
+      } else {
+        _outputValue = _inputValue / 3.28084; // 1 feet = 0.3048 meters
+      }
+    });
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Distance Conversion'),
+      ),
+      body: Padding(
+        padding: EdgeInsets.all(20.0),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            TextField(
+              decoration: InputDecoration(
+                labelText: 'Enter value',
+                border: OutlineInputBorder(),
+              ),
+              keyboardType: TextInputType.number,
+              onChanged: (value) {
+                setState(() {
+                  _inputValue = double.tryParse(value) ?? 0.0;
+                });
+              },
+            ),
+            SizedBox(height: 20),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: <Widget>[
+                ElevatedButton(
+                  onPressed: () {
+                    setState(() {
+                      _isMeterToFeet = true;
+                      _convert();
+                    });
+                  },
+                  style: ElevatedButton.styleFrom(
+                    primary: Colors.teal,
+                  ),
+                  child: Text('Meters to Feet'),
+                ),
+                ElevatedButton(
+                  onPressed: () {
+                    setState(() {
+                      _isMeterToFeet = false;
+                      _convert();
+                    });
+                  },
+                  style: ElevatedButton.styleFrom(
+                    primary: Colors.teal,
+                  ),
+                  child: Text('Feet to Meters'),
+                ),
+              ],
+            ),
+            SizedBox(height: 20),
+            Text(
+              'Result: $_outputValue',
+              style: TextStyle(fontSize: 20.0),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+class WeightConversionPage extends StatefulWidget {
+  @override
+  _WeightConversionPageState createState() => _WeightConversionPageState();
+}
+
+class _WeightConversionPageState extends State<WeightConversionPage> {
+  double _inputValue = 0.0;
+  double _outputValue = 0.0;
+  bool _isKilogramToPound = true;
+
+  void _convert() {
+    setState(() {
+      if (_isKilogramToPound) {
+        _outputValue = _inputValue * 2.20462; // 1 kilogram = 2.20462 pounds
+      } else {
+        _outputValue = _inputValue / 2.20462; // 1 pound = 0.453592 kilograms
+      }
+    });
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Weight Conversion'),
+      ),
+      body: Padding(
+        padding: EdgeInsets.all(20.0),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            TextField(
+              decoration: InputDecoration(
+                labelText: 'Enter value',
+                border: OutlineInputBorder(),
+              ),
+              keyboardType: TextInputType.number,
+              onChanged: (value) {
+                setState(() {
+                  _inputValue = double.tryParse(value) ?? 0.0;
+                });
+              },
+            ),
+            SizedBox(height: 20),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: <Widget>[
+                ElevatedButton(
+                  onPressed: () {
+                    setState(() {
+                      _isKilogramToPound = true;
+                      _convert();
+                    });
+                  },
+                  style: ElevatedButton.styleFrom(
+                    primary: Colors.teal,
+                  ),
+                  child: Text('Kilograms to Pounds'),
+                ),
+                ElevatedButton(
+                  onPressed: () {
+                    setState(() {
+                      _isKilogramToPound = false;
+                      _convert();
+                    });
+                  },
+                  style: ElevatedButton.styleFrom(
+                    primary: Colors.teal,
+                  ),
+                  child: Text('Pounds to Kilograms'),
+                ),
+              ],
+            ),
+            SizedBox(height: 20),
+            Text(
+              'Result: $_outputValue',
+              style: TextStyle(fontSize: 20.0),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+class TemperatureConversionPage extends StatefulWidget {
+  @override
+  _TemperatureConversionPageState createState() => _TemperatureConversionPageState();
+}
+
+class _TemperatureConversionPageState extends State<TemperatureConversionPage> {
+  double _inputValue = 0.0;
+  double _outputValue = 0.0;
+  bool _isCelsiusToFahrenheit = true;
+
+  void _convert() {
+    setState(() {
+      if (_isCelsiusToFahrenheit) {
+        _outputValue = (_inputValue * 9 / 5) + 32; // Celsius to Fahrenheit
+      } else {
+        _outputValue = (_inputValue - 32) * 5 / 9; // Fahrenheit to Celsius
+      }
+    });
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Temperature Conversion'),
+      ),
+      body: Padding(
+        padding: EdgeInsets.all(20.0),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            TextField(
+              decoration: InputDecoration(
+                labelText: 'Enter value',
+                border: OutlineInputBorder(),
+              ),
+              keyboardType: TextInputType.number,
+              onChanged: (value) {
+                setState(() {
+                  _inputValue = double.tryParse(value) ?? 0.0;
+                });
+              },
+            ),
+            SizedBox(height: 20),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: <Widget>[
+                ElevatedButton(
+                  onPressed: () {
+                    setState(() {
+                      _isCelsiusToFahrenheit = true;
+                      _convert();
+                    });
+                  },
+                  style: ElevatedButton.styleFrom(
+                    primary: Colors.teal,
+                  ),
+                  child: Text('Celsius to Fahrenheit'),
+                ),
+                ElevatedButton(
+                  onPressed: () {
+                    setState(() {
+                      _isCelsiusToFahrenheit = false;
+                      _convert();
+                    });
+                  },
+                  style: ElevatedButton.styleFrom(
+                    primary: Colors.teal,
+                  ),
+                  child: Text('Fahrenheit to Celsius'),
+                ),
+              ],
+            ),
+            SizedBox(height: 20),
+            Text(
+              'Result: $_outputValue',
+              style: TextStyle(fontSize: 20.0),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+class VolumeConversionPage extends StatefulWidget {
+  @override
+  _VolumeConversionPageState createState() => _VolumeConversionPageState();
+}
+
+class _VolumeConversionPageState extends State<VolumeConversionPage> {
+  double _inputValue = 0.0;
+  double _outputValue = 0.0;
+  bool _isCubicMeterToLiter = true;
+
+  void _convert() {
+    setState(() {
+      if (_isCubicMeterToLiter) {
+        _outputValue = _inputValue * 1000; // 1 m³ = 1000 L
+      } else {
+        _outputValue = _inputValue / 1000; // 1 L = 0.001 m³
+      }
+    });
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Volume Conversion'),
+      ),
+      body: Padding(
+        padding: EdgeInsets.all(20.0),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            TextField(
+              decoration: InputDecoration(
+                labelText: 'Enter value',
+                border: OutlineInputBorder(),
+              ),
+              keyboardType: TextInputType.number,
+              onChanged: (value) {
+                setState(() {
+                  _inputValue = double.tryParse(value) ?? 0.0;
+                });
+              },
+            ),
+            SizedBox(height: 20),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: <Widget>[
+                ElevatedButton(
+                  onPressed: () {
+                    setState(() {
+                      _isCubicMeterToLiter = true;
+                      _convert();
+                    });
+                  },
+                  style: ElevatedButton.styleFrom(
+                    primary: Colors.teal,
+                  ),
+                  child: Text('Cubic Meter to Liter'),
+                ),
+                ElevatedButton(
+                  onPressed: () {
+                    setState(() {
+                      _isCubicMeterToLiter = false;
+                      _convert();
+                    });
+                  },
+                  style: ElevatedButton.styleFrom(
+                    primary: Colors.teal,
+                  ),
+                  child: Text('Liter to Cubic Meter'),
+                ),
+              ],
+            ),
+            SizedBox(height: 20),
+            Text(
+              'Result: $_outputValue',
+              style: TextStyle(fontSize: 20.0),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
